@@ -1,0 +1,24 @@
+1) **Difference between Square Brackets and Parentheses in List Comprehensions:**
+   - Square Brackets `[]`: When you enclose a list comprehension in square brackets, it creates a new list. This means that the comprehension will iterate through the entire sequence and generate all the elements of the list before returning it.
+   - Parentheses `()`: When you use parentheses, you create a generator expression. A generator expression generates values on-the-fly as you iterate over it. It doesn't create a list in memory but instead yields values one at a time, which can be memory-efficient for large datasets.
+
+2) **Relationship between Generators and Iterators:**
+   - Generators are a type of iterator. An iterator is an object that implements the iterator protocol, which includes methods like `__iter__()` and `__next__()`. Generators are a specific type of iterator that are defined using functions with one or more `yield` statements. They can be used to lazily generate values, allowing for efficient memory usage.
+
+3) **Signs that a Function is a Generator Function:**
+   - A generator function contains one or more `yield` statements.
+   - It uses the `yield` keyword to produce a series of values, typically in a loop.
+   - When you call a generator function, it returns a generator object, but it does not start executing the function immediately. Instead, it starts executing when you iterate over the generator or explicitly call `next()` on it.
+
+4) **Purpose of a Yield Statement:**
+   - The `yield` statement is used in generator functions to yield a value from the function and pause its execution. It essentially saves the state of the function so that it can resume from where it left off the next time you iterate over or call `next()` on the generator.
+   - It allows you to create iterators that produce values on-the-fly, making them memory-efficient for large datasets and infinite sequences.
+
+5) **Relationship between Map Calls and List Comprehensions:**
+   - Both `map` calls and list comprehensions are used to transform and process iterable data (e.g., lists).
+   - `map` applies a given function to each item in an iterable (e.g., a list) and returns an iterator. It's often used with simple transformations and functions.
+   - List comprehensions create new lists by applying an expression to each item in an iterable and can include conditional logic. They return a list.
+   - List comprehensions are generally more expressive and flexible than `map` calls. You can use them to create filtered and transformed lists in a single readable line of code.
+   - While `map` returns an iterator in Python 3, you can convert it to a list using `list(map(...))` if needed.
+
+In summary, list comprehensions are used for creating lists, and generators are used for creating iterators that yield values lazily. `map` is another tool for transforming iterables but returns an iterator, while list comprehensions return lists. The choice between them depends on your specific use case and whether you need lazy evaluation or a list as the result.
